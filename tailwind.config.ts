@@ -13,9 +13,9 @@ const config: Config = {
     extend: {
       backgroundImage: (theme) => ({
         "login-web-bg-light":
-          "url('./src/assets/images/White-mode-cover.png')",
+          "url('../assets/images/White-mode-cover.png')",
         "login-web-bg-dark":
-          "url('./src/assets/images/dark-mode-cover.png')",
+          "url('../assets/images/dark-mode-cover.png')",
       }),
     },
     variants: {

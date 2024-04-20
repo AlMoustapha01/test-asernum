@@ -7,7 +7,9 @@ import { type ThemeProviderProps } from "next-themes/dist/types";
 const AppProvider = ({ children, ...props }: ThemeProviderProps) => {
   return (
     <NextUIProvider>
-      <NextThemesProvider {...props}>{children}</NextThemesProvider>
+      <NextThemesProvider {...props}>
+      {children}
+      </NextThemesProvider>
     </NextUIProvider>
   );
 };

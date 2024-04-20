@@ -1,7 +1,13 @@
 {
   "LoginPage": {
-    "title": "Test",
-    "description": "This is a basic example that demonstrates the usage of <code>next-intl</code> with the Next.js App Router. Try changing the locale in the top right corner and see how the content changes."
+    "title": "Bonjour, <strong>débloquer</strong> la sérénité financière",
+    "loginInputPlaceholder":"Identifiant",
+    "passwordInputPlaceholder":"Clé d'accès",
+    "forgotPassword":"J'ai perdu ma clé",
+    "unlock":"Déverrouiller",
+    "openAccount":"Ouvrir mon compte",
+    "formError":" Identifiant ou clé d'accès incorrect, réessayez",
+    "copyright":" Copyright © 2023 Paynah, Tous les droits réservés | Polique de confidentialité"
   },
   "LocaleLayout": {
     "title": "Create Next App",
@@ -14,5 +20,9 @@
   "NotFoundPage": {
     "title": "Page not found",
     "description": "Please double-check the browser address bar or use the navigation to go to a known page."
+  },
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "locale": "{locale, select, fr {Français} en {Anglais} other {Unknown}}"
   }
 }

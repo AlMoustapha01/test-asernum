@@ -1,0 +1,16 @@
+.main-container {
+    @apply bg-login-web-bg-light dark:bg-login-web-bg-dark h-screen w-screen bg-cover
+}
+
+.form-section {
+    @apply flex flex-col items-center justify-center space-y-16 min-h-[80vh] xl:w-[550px] mx-auto;
+    .form-check-error{
+        @apply border-red-400  border-opacity-80 bg-red-100 bg-opacity-50 dark:bg-opacity-50 dark:bg-red-800;
+    }
+    .form-check-valid {
+        @apply  border-black border-opacity-10 bg-white dark:bg-black dark:border-white
+    }
+    .submit-button {
+        @apply w-full rounded-3xl p-7 bg-[#000] dark:bg-white text-white dark:text-black
+    }
+}
