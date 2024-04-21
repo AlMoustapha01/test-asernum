@@ -29,7 +29,7 @@ export default function DashbordPage() {
 
   return (
     <DashboardLayout>
-      <div className=" overflow-hidden">
+      <div className="overflow-auto">
         <div className="xk-l:flex md:grid md:grid-cols-2 justify-between items-center">
           <p className="text-gray-700 font-semibold">{t("serenitySpace")}</p>
           <div className="flex gap-2 items-center bg-white dark:bg-black p-1 px-4 rounded-lg">
