@@ -158,7 +158,7 @@ export default function IndexPage({ params: { locale } }: Props) {
           </Button>
         </div>
       </section>
-      <footer className="flex md:flex-row flex-col md:justify-between justify-center items-center p-5 w-[80%] mx-auto">
+      <footer className="footer">
         <div>
           <LocaleSwitcher />
         </div>
