@@ -46,11 +46,5 @@ export const currencies = [
   },
 ];
 
-export const beneficiaries: Beneficiary[] = [
-  { initials: "AD", color: "bg-red-200" },
-  { initials: "DB", color: "bg-green-200" },
-  { initials: "DZ", color: "bg-blue-200" },
-  { initials: "BM", color: "bg-yellow-200" },
-];
 
 export const sendingModes = ["Direct", "Mobile money", "Virement"];

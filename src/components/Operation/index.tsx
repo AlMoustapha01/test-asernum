@@ -1,6 +1,6 @@
 "use client";
-import { beneficiaries, sendingModes } from "@/data/user";
-import BeneficiarySelector from "../BeneficiarySelector";
+import { sendingModes } from "@/data/user";
+import BeneficiarySelector, { Beneficiary } from "../BeneficiarySelector";
 import { Button, Input, Tab, Tabs } from "@nextui-org/react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -31,6 +31,12 @@ const Paiments = () => {
 
 export default function Operation() {
   const t = useTranslations();
+  const beneficiaries: Beneficiary[] = [
+    { initials: "AD", color: "bg-red-200" },
+    { initials: "DB", color: "bg-green-200" },
+    { initials: "DZ", color: "bg-blue-200" },
+    { initials: "BM", color: "bg-yellow-200" },
+  ];
 
   return (
     <div className="w-full space-y-2">
