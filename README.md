@@ -1,6 +1,6 @@
 # Integration test for asernum
 
-deployed on [Vercel](https://test-asernum-6tq7pv081-doumbia-al-moustaphas-projects.vercel.app/fr) .
+deployed on [Vercel](https://test-asernum.vercel.app/) .
 
 
 ## Getting Started
