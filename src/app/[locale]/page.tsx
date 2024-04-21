@@ -65,7 +65,7 @@ export default function IndexPage({ params: { locale } }: Props) {
         </div>
       </header>
       <section className="form-section px-4">
-        <p className="text-4xl text-center">
+        <p className="md:text-4xl text-2xl text-center">
           {t.rich("title", {
             strong: (chunks) => (
               <strong className="font-semibold">{chunks}</strong>
@@ -163,7 +163,7 @@ export default function IndexPage({ params: { locale } }: Props) {
           <LocaleSwitcher />
         </div>
         <div>
-          <p className="text-[10px]">{t("copyright")}</p>
+          <p className="text-[10px] md:text-start text-center">{t("copyright")}</p>
         </div>
       </footer>
     </main>
