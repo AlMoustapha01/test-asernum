@@ -1,0 +1,8 @@
+.float-btn {
+    @apply fixed bottom-5 right-5 p-0 w-16 h-16 bg-black dark:bg-white text-white dark:text-black text-4xl rounded-full flex items-center justify-center focus:outline-none;
+   
+}
+
+.float-btn-contain {
+    @apply fixed bottom-20 right-5 p-4 bg-white shadow-xl rounded-lg w-64
+}

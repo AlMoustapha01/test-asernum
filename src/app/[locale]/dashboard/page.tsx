@@ -30,7 +30,7 @@ export default function DashbordPage() {
   return (
     <DashboardLayout>
       <div className=" overflow-hidden">
-        <div className="flex justify-between items-center">
+        <div className="xk-l:flex md:grid md:grid-cols-2 justify-between items-center">
           <p className="text-gray-700 font-semibold">{t("serenitySpace")}</p>
           <div className="flex gap-2 items-center bg-white dark:bg-black p-1 px-4 rounded-lg">
             <p className="text-nowrap whitespace-nowrap">
@@ -42,8 +42,8 @@ export default function DashbordPage() {
             ></Input>
           </div>
         </div>
-        <div className="flex gap-2 mt-3">
-          <div className="w-3/12 space-y-3">
+        <div className="xl:flex gap-2 mt-3">
+          <div className="xl:w-3/12 xl:order-first md:order-last space-y-3">
             <CreditCard />
             <div className="flex flex-col w-full bg-white dark:bg-black bg-cover rounded-xl h-3/4 p-2">
               <div>
@@ -77,8 +77,8 @@ export default function DashbordPage() {
               </Tabs>
             </div>
           </div>
-          <div className="w-7/12">
-            <div className="flex flex-row space-x-2">
+          <div className="xl:w-7/12">
+            <div className="grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-2">
               {accounts.map((account) => (
                 <AccountCard
                   key={account.title}
@@ -86,7 +86,7 @@ export default function DashbordPage() {
                   balance={account.balance}
                 />
               ))}
-              <button className="border-2 border-dashed border-gray-400 rounded-xl p-4 flex items-center justify-center w-52">
+              <button className="border-2 border-dashed border-gray-400 rounded-xl p-4 flex items-center justify-center md:w-52 w-full md:h-full h-36">
                 <span className="text-gray-700">{t("addAccount")}</span>
               </button>
             </div>
@@ -105,7 +105,7 @@ export default function DashbordPage() {
               <TransactionTable />
             </div>
           </div>
-          <div className="w-3/12 space-y-4">
+          <div className="xl:w-3/12 space-y-4">
             <div className="p-4 mx-auto rounded-lg bg-white dark:bg-black">
               <div className="flex justify-between items-center">
                 <p className="text-gray-700 text-lg font-semibold">

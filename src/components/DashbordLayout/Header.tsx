@@ -15,7 +15,7 @@ export default function Header() {
       <div>
         <Image className="w-16 h-16" src={Logo} alt="logo paynah pro" />
       </div>
-      <div className="flex gap-2">
+      <div className="flex md:flex-row flex-col gap-2">
         <div className="flex flex-col gap-2">
           <p>
             {t.rich("header.balance", {

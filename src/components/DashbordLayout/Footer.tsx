@@ -16,30 +16,82 @@ import Integration from "@/assets/ASSET DASHBOARD/Groupe 122.svg";
 import Point from "@/assets/ASSET DASHBOARD/Groupe 128.svg";
 import Send from "@/assets/ASSET DASHBOARD/Groupe 460.svg";
 import { useTranslations } from "next-intl";
+import FloatButton from "../FloatingButton";
+import { useMediaQuery } from "@/hooks/media-query";
 
 export default function Footer() {
-  const t = useTranslations("Dashboard")
+  const t = useTranslations("Dashboard");
   const { theme } = useTheme();
+
+  const IsMobile = useMediaQuery("(max-width: 768px)");
+
   return (
-    <footer className="flex w-[90%] justify-between items-center p-5 mx-auto">
-      <div>
+    <footer className="flex md:flex-row flex-col gap-5 w-[90%] justify-between items-center p-5 mx-auto">
+      <div className="xl:order-first md:order-last order-last">
         <Image
           className="w-28"
           src={theme == "light" ? LogoWhite : LogoDark}
           alt="Logo Paynah"
         />
       </div>
+      {IsMobile && (
+        <FloatButton>
+          <div className="flex flex-col gap-4">
+            <FooterNavButton
+              icon={Send}
+              message={t("sendMoney")}
+              popover={false}
+            />
+            <FooterNavButton
+              icon={Repetition}
+              message={t("paymentLink")}
+              popover={false}
+            />
+            <FooterNavButton
+              icon={AccountIcon}
+              message={t("account")}
+              popover={false}
+            />
+            <FooterNavButton
+              icon={Transactions}
+              message="Transactions"
+              popover={false}
+            />
+            <FooterNavButton
+              icon={Point}
+              message={t("salesPoints")}
+              popover={false}
+            />
+            <FooterNavButton
+              icon={Appro}
+              message="Approvisionnement"
+              popover={false}
+            />
+            <FooterNavButton
+              icon={Integration}
+              message="Intégration"
+              popover={false}
+            />
+          </div>
+        </FloatButton>
+      )}
+      {!IsMobile && (
+        <div className="flex items-center gap-4">
+          <FooterNavButton icon={Send} message={t("sendMoney")} popover />
+          <FooterNavButton
+            icon={Repetition}
+            message={t("paymentLink")}
+            popover
+          />
+          <FooterNavButton icon={AccountIcon} message={t("account")} popover />
+          <FooterNavButton icon={Transactions} message="Transactions" popover />
+          <FooterNavButton icon={Point} message={t("salesPoints")} popover />
+          <FooterNavButton icon={Appro} message="Approvisionnement" popover />
+          <FooterNavButton icon={Integration} message="Intégration" popover />
+        </div>
+      )}
       <div className="flex items-center gap-4">
-        <FooterNavButton icon={Send} popoverMessage={t('sendMoney')} />
-        <FooterNavButton icon={Repetition} popoverMessage={t('paymentLink')} />
-        <FooterNavButton icon={AccountIcon} popoverMessage={t('account')} />
-        <FooterNavButton icon={Transactions} popoverMessage="Transactions" />
-        <FooterNavButton icon={Point} popoverMessage={t('salesPoints')} />
-        <FooterNavButton icon={Appro} popoverMessage="Approvisionnement" />
-        <FooterNavButton icon={Integration} popoverMessage="Intégration" />
-      </div>
-      <div className="flex items-center gap-4">
-      <LocaleSwitcher />
+        <LocaleSwitcher />
         <ThemeSwitcher className="text-gray-400 hover:text-black" />
         <button>
           <IoNotifications className="h-8 w-8 text-gray-400 hover:text-black " />

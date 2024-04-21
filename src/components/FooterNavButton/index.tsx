@@ -3,13 +3,25 @@ import Image from "next/image";
 
 interface Props {
   icon: any;
-  popoverMessage: string;
+  message: string;
+  popover: boolean;
 }
-export default function FooterNavButton({ icon, popoverMessage }: Props) {
+export default function FooterNavButton({ icon, message, popover }: Props) {
   return (
-    <Tooltip content={popoverMessage}>
-      <Button className="p-3 hover:bg-black hover:text-white" variant="flat" isIconOnly>
-        <Image  src={icon} alt={popoverMessage} width={24} height={24} />
+    <Tooltip content={message}>
+      <Button
+        className="p-3 hover:bg-black hover:text-white"
+        variant="flat"
+        isIconOnly={popover}
+        startContent={
+          !popover && <Image src={icon} alt={message} width={24} height={24} />
+        }
+      >
+        {popover ? (
+          <Image src={icon} alt={message} width={24} height={24} />
+        ) : (
+          <p>{message}</p>
+        )}
       </Button>
     </Tooltip>
   );
