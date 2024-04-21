@@ -64,7 +64,7 @@ export default function IndexPage({ params: { locale } }: Props) {
           <ThemeSwitcher />
         </div>
       </header>
-      <section className="form-section">
+      <section className="form-section px-4">
         <p className="text-4xl text-center">
           {t.rich("title", {
             strong: (chunks) => (
@@ -158,7 +158,7 @@ export default function IndexPage({ params: { locale } }: Props) {
           </Button>
         </div>
       </section>
-      <footer className="flex justify-between p-5 w-[80%] mx-auto">
+      <footer className="flex md:flex-row flex-col md:justify-between justify-center items-center p-5 w-[80%] mx-auto">
         <div>
           <LocaleSwitcher />
         </div>
