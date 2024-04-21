@@ -86,7 +86,7 @@ export default function DashbordPage() {
                   balance={account.balance}
                 />
               ))}
-              <button className="border-2 border-dashed border-gray-400 rounded-xl p-4 flex items-center justify-center md:w-52 w-full md:h-full h-36">
+              <button className="border-2 border-dashed border-gray-400 rounded-xl p-4 flex items-center justify-center 2xl:w-52 xl:w-44 w-full md:h-full h-36">
                 <span className="text-gray-700">{t("addAccount")}</span>
               </button>
             </div>

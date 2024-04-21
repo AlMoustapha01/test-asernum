@@ -30,7 +30,7 @@ const Paiments = () => {
 };
 
 export default function Operation() {
-  const t = useTranslations();
+  const t = useTranslations("Dashboard");
   const beneficiaries: Beneficiary[] = [
     { initials: "AD", color: "bg-red-200" },
     { initials: "DB", color: "bg-green-200" },
@@ -43,12 +43,12 @@ export default function Operation() {
       <BeneficiarySelector data={beneficiaries} />
       <Input label="Nom du bénéficiaire" />
       <div className="flex gap-2 p-2 border-1 items-center border-black rounded-lg border-opacity-10">
-        <p className="text-gray-700 font-semibold whitespace-nowrap">
+        <p className="text-gray-700 xl:text-[10px] font-semibold whitespace-nowrap">
           {t("sendingMode")}
         </p>
-        <Tabs key={"sm"} size={"sm"} aria-label="Tabs sizes">
+        <Tabs key={"sm"} size={"sm"} aria-label="Tabs sizes" className="text-sm">
           {sendingModes.map((mode) => (
-            <Tab key={mode} title={mode} />
+            <Tab key={mode} title={mode} className="xl:text-[10px]" />
           ))}
         </Tabs>
       </div>

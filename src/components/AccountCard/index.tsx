@@ -14,7 +14,7 @@ const AccountCard: React.FC<AccountProps> = ({ title, balance }) => {
 
   const t = useTranslations("Dashboard");
   return (
-    <div className="bg-white dark:bg-black rounded-2xl space-y-3 p-4 md:w-52 w-full">
+    <div className="bg-white dark:bg-black rounded-2xl space-y-3 p-4 2xl:w-52 xl:w-44 w-full">
       <div className="flex w-full gap-2">
         <div className="w-full">
           <Button className="p-2" isIconOnly>
