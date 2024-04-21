@@ -24,5 +24,48 @@
   "LocaleSwitcher": {
     "label": "Change language",
     "locale": "{locale, select, fr {Français} en {Anglais} other {Unknown}}"
+  },
+  "Dashboard": {
+    "header":{
+        "balance":"Solde: <strong>200 000</strong>",
+        "balance-available":"Solde disponible: <strong>200 000</strong>"
+    },
+    "serenitySpace": "Serenity Space",
+    "mainAccount": "Compte principal",
+    "currency": "FCFA",
+    "balance": "Solde",
+    "availableBalance": "Solde disponible",
+    "quickActions": "Opérations rapides",
+    "sendMoney": "Envoi d'argent",
+    "paymentLink": "Lien de paiement",
+    "recharge": "Rechargement",
+    "favoriteBeneficiaries": "Bénéficiaire favoris",
+    "beneficiaryName": "Nom du bénéficiaire",
+    "sendingMode": "Mode d'envoi",
+    "direct": "Direct",
+    "mobileMoney": "Mobile money",
+    "wireTransfer": "Virement",
+    "accountNumber": "Numéro de compte",
+    "amount": "Montant",
+    "recentTransactions": "Transactions récentes",
+    "transactionID": "ID Transaction",
+    "date": "Date",
+    "type": "Type",
+    "status": "Statut",
+    "actions": "Actions",
+    "seeAll": "Voir tout",
+    "salesPoints": "Points de vente",
+    "pendingApprovals": "Approbations en attente",
+    "doYouHaveConcerns": "Avez-vous des préoccupations?",
+    "askYourQuestion": "Écrivez votre question",
+    "completed": "Effectué",
+    "inProgress": "En cours",
+    "failed": "Échoué",
+    "expired": "Expiré",
+    "addAccount": "Ajouter un compte",
+    "approvisionment":"Approvisionnement",
+    "account":"Comptes"
+
   }
+  
 }

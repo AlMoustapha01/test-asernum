@@ -27,5 +27,47 @@
   "LocaleSwitcher": {
     "label": "Change language",
     "locale":"{locale, select, fr {French} en {English} other {Unknown}}"
+  },
+  "Dashboard": {
+    "header":{
+        "balance":"Balance: <strong>200 000</strong>",
+        "balance-available":"Available balance: <strong>200 000</strong>"
+    },
+    "serenitySpace": "Serenity Space",
+  "mainAccount": "Main Account",
+  "currency": "XOF",
+  "balance": "Balance",
+  "availableBalance": "Available Balance",
+  "quickActions": "Quick Actions",
+  "sendMoney": "Send Money",
+  "paymentLink": "Payment Link",
+  "recharge": "Recharge",
+  "favoriteBeneficiaries": "Favorite Beneficiaries",
+  "beneficiaryName": "Beneficiary Name",
+  "sendingMode": "Sending Mode",
+  "direct": "Direct",
+  "mobileMoney": "Mobile Money",
+  "wireTransfer": "Wire Transfer",
+  "accountNumber": "Account Number",
+  "amount": "Amount",
+  "recentTransactions": "Recent Transactions",
+  "transactionID": "Transaction ID",
+  "date": "Date",
+  "type": "Type",
+  "status": "Status",
+  "actions": "Actions",
+  "seeAll": "See All",
+  "salesPoints": "Sales Points",
+  "pendingApprovals": "Pending Approvals",
+  "doYouHaveConcerns": "Do you have concerns?",
+  "askYourQuestion": "Write your question",
+  "completed": "Completed",
+  "inProgress": "In Progress",
+  "failed": "Failed",
+  "expired": "Expired",
+  "addAccount": "Add Account",
+  "approvisionment":"Approvisionment",
+  "account":"Account"
+
   }
 }

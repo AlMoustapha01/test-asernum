@@ -11,7 +11,7 @@ export const locales = ["fr", "en"] as const;
 export const pathnames = {
   "/": "/",
   "/dashboard": {
-    fr: "/tableau-de-bord",
+    fr: "/dashboard",
     en: "/dashboard",
   },
 } satisfies Pathnames<typeof locales>;

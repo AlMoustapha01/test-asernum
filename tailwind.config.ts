@@ -16,6 +16,7 @@ const config: Config = {
           "url('../assets/images/White-mode-cover.png')",
         "login-web-bg-dark":
           "url('../assets/images/dark-mode-cover.png')",
+        "card-cover": "url('../assets/images/cover-card-2.png')"
       }),
     },
     variants: {

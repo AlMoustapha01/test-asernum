@@ -6,7 +6,10 @@ import Moon from '../../assets/images/half-moon.png'
 import { useTheme } from 'next-themes';
 import Image from 'next/image';
 
-const ThemeSwitcher: React.FC = () => {
+interface Props {
+    className?: string;
+}
+const ThemeSwitcher: React.FC<Props> = ({className}:Props) => {
 
     const { theme, setTheme } = useTheme();
 
@@ -23,7 +26,7 @@ const ThemeSwitcher: React.FC = () => {
     return (
 
             <button  onClick={toggleTheme} className={switchClasses}>
-                {isActive ? <Image src={Sun} alt='Light mode icon switcher' /> :  <Image src={Moon} alt='dark mode icon switcher' />}
+                {isActive ? <Image className={className || undefined}  src={Sun} alt='Light mode icon switcher' /> :  <Image className={className || undefined} src={Moon} alt='dark mode icon switcher' />}
             </button>
 
     )

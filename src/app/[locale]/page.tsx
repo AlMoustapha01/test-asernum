@@ -16,6 +16,7 @@ import * as yup from "yup";
 import { useForm, Controller, set } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
+import { useRouter } from "@/navigation";
 
 type Props = {
   params: { locale: string };
@@ -30,7 +31,7 @@ export default function IndexPage({ params: { locale } }: Props) {
   const t = useTranslations("LoginPage");
   const [formError, setFormError] = useState(false);
   const { theme } = useTheme();
-
+  const router = useRouter();
   const {
     handleSubmit,
     control,
@@ -40,7 +41,11 @@ export default function IndexPage({ params: { locale } }: Props) {
   });
 
   const onSubmit = (data: any) => {
+    if (formError) {
+      router.push("/dashboard");
+    }
     setFormError(!formError);
+
     console.log(data);
   };
 
@@ -69,9 +74,7 @@ export default function IndexPage({ params: { locale } }: Props) {
         </p>
         <div
           className={`w-full space-y-6 ${
-            formError
-              ? "form-check-error"
-              : "form-check-valid"
+            formError ? "form-check-error" : "form-check-valid"
           }  border-1 p-8 px-16 rounded-3xl`}
         >
           <div className="flex flex-col gap-4 justify-center items-center">
