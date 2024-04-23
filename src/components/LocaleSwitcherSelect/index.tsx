@@ -37,11 +37,20 @@ export default function LocaleSwitcherSelect({
   return (
     <Select
       placeholder=""
-      startContent={<Image src={Globe} alt="globe" />}
+      startContent={<Image className="w-5" src={Globe} alt="globe" />}
       defaultSelectedKeys={[defaultValue]}
       disabled={isPending}
       onChange={onSelectChange}
-      className="w-36"
+      variant="bordered"
+      size="sm"
+      className="w-[114px] text-[12px]"
+      scrollShadowProps={{
+        isEnabled: false
+      }}
+      classNames={{
+        trigger:['bg-transparent','border-none'],
+        value:['text-[12px]']
+      }}
     >
       {children}
     </Select>

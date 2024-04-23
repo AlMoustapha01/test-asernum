@@ -1,20 +1,20 @@
 .main-container {
-    @apply bg-login-web-bg-light dark:bg-login-web-bg-dark h-screen w-screen bg-cover
+    @apply bg-login-web-bg-light dark:bg-login-web-bg-dark h-screen w-screen bg-cover flex  items-center justify-center
 }
 
 .form-section {
-    @apply flex flex-col items-center justify-center space-y-16 min-h-[80vh] xl:w-[550px] mx-auto;
+    @apply flex flex-col items-center justify-center xl:w-[550px] mx-auto;
     .form-check-error{
         @apply border-red-400  border-opacity-80 bg-red-100 bg-opacity-50 dark:bg-opacity-50 dark:bg-red-800;
     }
     .form-check-valid {
-        @apply  border-black border-opacity-10 bg-white dark:bg-black dark:border-white
+        @apply  border-black border-opacity-10 bg-white dark:border-white
     }
     .submit-button {
-        @apply w-full rounded-3xl p-7 bg-[#000] dark:bg-white text-white dark:text-black
+        @apply w-full py-[22px] rounded-3xl bg-[#000] dark:bg-white text-white dark:text-black
     }
 }
 
 .footer {
-    @apply flex md:flex-row flex-col md:justify-between justify-center items-center p-5 w-[80%] mx-auto
+    @apply absolute bottom-3 w-full flex md:flex-row flex-col md:justify-between justify-center items-center px-[27px] mx-auto
 }

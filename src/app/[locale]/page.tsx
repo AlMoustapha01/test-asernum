@@ -1,10 +1,6 @@
 "use client";
-import ThemeSwitcher from "@/components/ThemeSwitcher";
 import { useTranslations } from "next-intl";
-import LogoWhite from "@/assets/images/PAYNAH-PRO LETTERMARK-BLACK.png";
-import LogoDark from "@/assets/images/W-PAYNAH-PRO-LETTERMARK.png";
 import LockIconLight from "@/assets/svg/lock-light.svg";
-import LockIconDark from "@/assets/images/padlock.png";
 import LockIconError from "@/assets/images/padlock-2.png";
 
 import Image from "next/image";
@@ -13,29 +9,31 @@ import LocaleSwitcher from "@/components/LocaleSwitcher";
 import { Button, Input } from "@nextui-org/react";
 import PasswordInput from "@/components/PasswordInput";
 import * as yup from "yup";
-import { useForm, Controller, set } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useState } from "react";
 import { useRouter } from "@/navigation";
+import AppLogo from "@/components/AppLogo";
 
 type Props = {
   params: { locale: string };
 };
 
-const schema = yup.object().shape({
-  email: yup.string().email().required(),
-  password: yup.string().required(),
-});
-
 export default function IndexPage({ params: { locale } }: Props) {
   const t = useTranslations("LoginPage");
   const [formError, setFormError] = useState(false);
-  const { theme } = useTheme();
   const router = useRouter();
+  const schema = yup.object().shape({
+    email: yup
+      .string()
+      .email("Le champ Identifiant doit être un email")
+      .required(t("loginInputErrorMessage")),
+    password: yup.string().required(t("passwordInputErrorMessage")),
+  });
   const {
     handleSubmit,
     control,
-    formState: { isValid },
+    formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
   });
@@ -50,54 +48,40 @@ export default function IndexPage({ params: { locale } }: Props) {
   };
 
   return (
-    <main className={`main-container ${theme === "dark" && "dark"}`}>
-      <header className="flex justify-between p-5 w-[80%] mx-auto">
+    <main className={`main-container relative`}>
+      <header className="flex absolute left-8 top-8">
         <div>
-          <Image
-            className="w-28"
-            src={theme == "light" ? LogoWhite : LogoDark}
-            alt="Logo Paynah"
-          />
-        </div>
-        <div className="flex gap-4">
-          <p className="font-semibold capitalize">{locale}</p>
-          <ThemeSwitcher />
+          <AppLogo />
         </div>
       </header>
       <section className="form-section px-4">
-        <p className="md:text-4xl text-2xl text-center">
-          {t.rich("title", {
-            strong: (chunks) => (
-              <strong className="font-semibold">{chunks}</strong>
-            ),
-          })}
+        <p className="md:text-3xl font-semibold text-2xl text-center mt-6 mb-12">
+          {t("title")}
         </p>
         <div
-          className={`w-full space-y-6 ${
-            formError ? "form-check-error" : "form-check-valid"
-          }  border-1 p-8 px-16 rounded-3xl`}
+          className={`w-full space-y-6 form-check-valid border-1 py-4 px-16 rounded-3xl`}
         >
-          <div className="flex flex-col gap-4 justify-center items-center">
+          <div className="flex flex-col justify-center items-center">
             <Image
-              src={
-                formError
-                  ? LockIconError
-                  : theme == "dark"
-                  ? LockIconDark
-                  : LockIconLight
-              }
-              className="w-8 h-8"
+              src={formError ? LockIconError : LockIconLight}
+              className="w-5 h-5"
               alt="lock icon"
             />
-
-            <p
-              className={`text-red-500 ${
-                formError ? " opacity-100" : "opacity-0"
-              }`}
-            >
-              {t("formError")}
-            </p>
+            {(formError  || errors.email || errors.password) && <div className="my-2">
+              {formError && (
+                <p className={`text-danger text-xs`}>{t("formError")}</p>
+              )}
+              {errors.email && (
+                <p className={`text-danger text-xs`}>{errors.email.message}</p>
+              )}
+              {errors.password && (
+                <p className={`text-danger text-xs`}>
+                  {errors.password.message}
+                </p>
+              )}
+            </div>}
           </div>
+
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="space-y-4">
               <div>
@@ -111,9 +95,25 @@ export default function IndexPage({ params: { locale } }: Props) {
                       size="lg"
                       type="email"
                       variant="bordered"
+                      isInvalid={errors.email !== undefined}
                       classNames={{
-                        input: "bg-gray-100 dark:bg-gray-950 py-7",
-                        inputWrapper: "bg-gray-100 dark:bg-gray-950 py-7",
+                        input: [
+                          "bg-gray-light border-0 font-light text-sm px-2 py-[26px]",
+                          "hover:bg-gray-light ",
+                          "placeholder:text-[#626262]",
+                          "file:bg-transparent",
+                        ],
+                        innerWrapper: "bg-transparent border-0 file:bg-transparent",
+                        inputWrapper: [
+                          "shadow-none border-0 bg-gray-light py-[26px]",
+                          "hover:bg-gray-light",
+                          "focus:bg-gray-light",
+                          "file:bg-transparent",
+                          "backdrop-blur-xl",
+                          "backdrop-saturate-200",
+                          "group-data-[focused=true]:bg-gray-light",
+                          "!cursor-text",
+                        ],
                       }}
                     />
                   )}
@@ -129,30 +129,47 @@ export default function IndexPage({ params: { locale } }: Props) {
                       placeholder={t("passwordInputPlaceholder")}
                       variant="bordered"
                       size="lg"
+                      isInvalid={errors.password !== undefined}
                       classNames={{
-                        input: "bg-gray-100 dark:bg-gray-950 py-7",
-                        inputWrapper: "bg-gray-100 dark:bg-gray-950 py-7",
+                        input: [
+                          "bg-gray-light border-0 font-light text-sm px-2 py-[26px]",
+                          "hover:bg-gray-light ",
+                          "placeholder:text-[#626262]",
+                          "file:bg-transparent",
+                        ],
+                        innerWrapper: "bg-transparent border-0 file:bg-transparent",
+                        inputWrapper: [
+                          "shadow-none border-0 bg-gray-light py-[26px]",
+                          "hover:bg-gray-light",
+                          "focus:bg-gray-light",
+                          "file:bg-transparent",
+                          "backdrop-blur-xl",
+                          "backdrop-saturate-200",
+                          "group-data-[focused=true]:bg-gray-light",
+                          "!cursor-text",
+                        ],
                       }}
                     />
                   )}
                 />
               </div>
               <div>
-                <p>{t("forgotPassword")}</p>
+                <a
+                  href="/"
+                  className="text-sm cursor-pointer hover:font-medium transition-all duration-100"
+                >
+                  {t("forgotPassword")}
+                </a>
               </div>
               <div>
-                <Button
-                  isDisabled={!isValid}
-                  type="submit"
-                  className="submit-button"
-                >
+                <Button type="submit" className="submit-button">
                   {t("unlock")}
                 </Button>
               </div>
             </div>
           </form>
         </div>
-        <div>
+        <div className="my-7">
           <Button variant="light" className="font-semibold">
             {t("openAccount")}
           </Button>
@@ -162,8 +179,15 @@ export default function IndexPage({ params: { locale } }: Props) {
         <div>
           <LocaleSwitcher />
         </div>
-        <div>
-          <p className="text-[10px] md:text-start text-center">{t("copyright")}</p>
+        <div className="flex items-center gap-2">
+          <p className="text-[12px] md:text-start text-center">
+            {t("copyright")}
+          </p>
+          <p className="text-[12px]">{"|"}</p>
+
+          <p className="text-[12px] md:text-start text-center">
+            {t("confidentiality")}
+          </p>
         </div>
       </footer>
     </main>

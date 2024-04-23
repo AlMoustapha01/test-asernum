@@ -1,17 +1,13 @@
 "use client";
 
 import { NextUIProvider } from "@nextui-org/react";
-import { ThemeProvider as NextThemesProvider } from "next-themes";
-import { type ThemeProviderProps } from "next-themes/dist/types";
+import { ReactNode } from "react";
 
-const AppProvider = ({ children, ...props }: ThemeProviderProps) => {
-  return (
-    <NextUIProvider>
-      <NextThemesProvider {...props}>
-      {children}
-      </NextThemesProvider>
-    </NextUIProvider>
-  );
+interface AppProviderProps {
+  children: ReactNode;
+}
+const AppProvider = ({ children }: AppProviderProps) => {
+  return <NextUIProvider>{children}</NextUIProvider>;
 };
 
 export default AppProvider;

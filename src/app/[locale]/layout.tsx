@@ -1,4 +1,4 @@
-import { Montserrat } from "next/font/google";
+import { Poppins } from "next/font/google";
 import AppProvider from "./provider";
 import { locales } from "@/config";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
@@ -10,7 +10,10 @@ type Props = {
   params: { locale: string };
 };
 
-const montserrat = Montserrat({ subsets: ["latin"] });
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["300","400","500","600","700"]
+});
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -33,9 +36,9 @@ export default function LocaleLayout({ children, params: { locale } }: Props) {
 
   return (
     <html lang={locale}>
-      <body className={montserrat.className}>
+      <body className={poppins.className}>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          <AppProvider attribute="class" defaultTheme="light">
+          <AppProvider>
             {children}
           </AppProvider>
         </NextIntlClientProvider>

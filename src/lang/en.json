@@ -1,6 +1,6 @@
 {
   "LoginPage": {
-    "title": "Hello <strong>Unlock</strong> financial serenity",
+    "title": "Hello,",
     "description": "",
     "loginInputPlaceholder":"Login",
     "passwordInputPlaceholder":"Access key",
@@ -8,7 +8,10 @@
     "unlock":"Unlock",
     "openAccount":"Open my account",
     "formError":"Incorrect login or access key, try again",
-    "copyright":" Copyright © 2023 Paynah, All rights reserved | Privacy policy"
+    "copyright":" Copyright © 2023 Paynah, All rights reserved",
+    "confidentiality":"Privacy policy",
+    "loginInputErrorMessage": "Login field is required",
+    "passwordInputErrorMessage": "Access key field is required"
 
   },
   "LocaleLayout": {
