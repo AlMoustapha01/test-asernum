@@ -10,7 +10,8 @@
     "copyright": " Copyright © 2023 Paynah. Tous droits réservés",
     "confidentiality": " Polique de confidentialité",
     "loginInputErrorMessage": "Le champ Identifiant est requis",
-    "passwordInputErrorMessage": "Le champ clé d'accès est requis"
+    "passwordInputErrorMessage": "Le champ clé d'accès est requis",
+    "emailError":"Le champ Identifiant doit être un email"
   },
   "LocaleLayout": {
     "title": "Create Next App",

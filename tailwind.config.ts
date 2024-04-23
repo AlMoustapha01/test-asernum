@@ -11,6 +11,28 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        spin: {
+          from: {
+            transform: "rotate(0deg)",
+          },
+          to: {
+            transform: "rotate(360deg)",
+          },
+        },
+        "rotate-and-reverse": {
+          "0%": { transform: "rotate(0deg)", fill: "black" },
+          "20%": { transform: "rotate(360deg)", fill: "#e00000" },
+          "50%": { transform: "rotate(360deg)", fill: "#e00000" },
+          "70%": { transform: "rotate(360deg)", fill: "#e00000" },
+          "90%": { transform: "rotate(0deg)", fill: "#e00000" },
+          "100%": { transform: "rotate(0deg)", fill: "black" },
+        },
+      },
+      animation: {
+        "spin-2s": "spin 0.2s linear",
+        "rotate-reverse-4s": "rotate-and-reverse 4s ease-in-out",
+      },
       backgroundImage: (theme) => ({
         "login-web-bg-light": "url('../assets/images/White-mode-cover.png')",
         "login-web-bg-dark": "url('../assets/images/dark-mode-cover.png')",
@@ -19,11 +41,28 @@ const config: Config = {
       textColor: {
         danger: "#e00000",
         "gray-light": "#f0f0f0",
+        "gray-medium": "#c1c1c1",
       },
-      backgroundColor:{
+      backgroundColor: {
         danger: "#e00000",
         "gray-light": "#f0f0f0",
-      }
+        "gray-medium": "#c1c1c1",
+      },
+      borderColor: {
+        danger: "#e00000",
+        "gray-light": "#f0f0f0",
+        "gray-medium": "#c1c1c1",
+      },
+      ringColor: {
+        danger: "#e00000",
+        "gray-light": "#f0f0f0",
+        "gray-medium": "#c1c1c1",
+      },
+      fill: {
+        danger: "#e00000",
+        "gray-light": "#f0f0f0",
+        "gray-medium": "#c1c1c1",
+      },
     },
     variants: {
       extend: {

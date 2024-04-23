@@ -11,8 +11,8 @@
     "copyright":" Copyright © 2023 Paynah, All rights reserved",
     "confidentiality":"Privacy policy",
     "loginInputErrorMessage": "Login field is required",
-    "passwordInputErrorMessage": "Access key field is required"
-
+    "passwordInputErrorMessage": "Access key field is required",
+    "emailError":"Login field must be an email address"
   },
   "LocaleLayout": {
     "title": "Create Next App",

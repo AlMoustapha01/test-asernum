@@ -1,12 +1,11 @@
 import logoTotal from "@/assets/images/Logo_TotalEnergies.png";
-import { Beneficiary } from "@/components/BeneficiarySelector";
 export const userData = {
   name: "John Doe",
-  email: "john.doe@example.com",
-  password: "secret",
+  email: "bendiomande23@gmail.com",
+  password: "P@ssword",
   balance: "800 300",
   balance_available: "800 300",
-  accountNumber:"PA4839CI"
+  accountNumber: "PA4839CI",
 };
 
 export const enterprises = [
@@ -45,6 +44,5 @@ export const currencies = [
     label: "JPY",
   },
 ];
-
 
 export const sendingModes = ["Direct", "Mobile money", "Virement"];
