@@ -3,8 +3,6 @@ import LogoWhite from "@/assets/images/PAYNAH-PRO LETTERMARK-BLACK.png";
 import LogoDark from "@/assets/images/W-PAYNAH-PRO-LETTERMARK.png";
 import { useTheme } from "next-themes";
 import Image from "next/image";
-import ThemeSwitcher from "@/components/ThemeSwitcher";
-import LocaleSwitcher from "@/components/LocaleSwitcher";
 import { IoNotifications } from "react-icons/io5";
 import { FaCog } from "react-icons/fa";
 import FooterNavButton from "../FooterNavButton";
@@ -16,92 +14,72 @@ import Integration from "@/assets/ASSET DASHBOARD/Groupe 122.svg";
 import Point from "@/assets/ASSET DASHBOARD/Groupe 128.svg";
 import Send from "@/assets/ASSET DASHBOARD/Groupe 460.svg";
 import { useTranslations } from "next-intl";
-import FloatButton from "../FloatingButton";
-import { useMediaQuery } from "@/hooks/media-query";
+import AppLogo from "../AppLogo";
+import Link from "next/link";
 
 export default function Footer() {
   const t = useTranslations("Dashboard");
   const { theme } = useTheme();
 
-  const IsMobile = useMediaQuery("(max-width: 768px)");
-
   return (
-    <footer className="flex md:flex-row flex-col gap-5 w-[90%] justify-between items-center p-5 mx-auto">
-      <div className="xl:order-first md:order-last order-last">
-        <Image
-          className="w-28"
-          src={theme == "light" ? LogoWhite : LogoDark}
-          alt="Logo Paynah"
-        />
-      </div>
-      {IsMobile && (
-        <FloatButton>
-          <div className="flex flex-col gap-4">
-            <FooterNavButton
-              icon={Send}
-              message={t("sendMoney")}
-              popover={false}
-            />
-            <FooterNavButton
-              icon={Repetition}
-              message={t("paymentLink")}
-              popover={false}
-            />
-            <FooterNavButton
-              icon={AccountIcon}
-              message={t("account")}
-              popover={false}
-            />
-            <FooterNavButton
-              icon={Transactions}
-              message="Transactions"
-              popover={false}
-            />
-            <FooterNavButton
-              icon={Point}
-              message={t("salesPoints")}
-              popover={false}
-            />
-            <FooterNavButton
-              icon={Appro}
-              message="Approvisionnement"
-              popover={false}
-            />
-            <FooterNavButton
-              icon={Integration}
-              message="Intégration"
-              popover={false}
-            />
-          </div>
-        </FloatButton>
-      )}
-      {!IsMobile && (
-        <div className="flex items-center gap-4">
-          <FooterNavButton icon={Send} message={t("sendMoney")} popover />
-          <FooterNavButton
-            icon={Repetition}
-            message={t("paymentLink")}
-            popover
-          />
-          <FooterNavButton icon={AccountIcon} message={t("account")} popover />
-          <FooterNavButton icon={Transactions} message="Transactions" popover />
-          <FooterNavButton icon={Point} message={t("salesPoints")} popover />
-          <FooterNavButton icon={Appro} message="Approvisionnement" popover />
-          <FooterNavButton icon={Integration} message="Intégration" popover />
+    <footer className="fixed inset-x-0 bottom-5 z-[90] bg-transparent">
+      <div className="relative">
+        <div className="max-w-screen-2xl 2xl:max-w-[1600px] mx-auto px-4 md:px-6 lg:px-8 rounded-3xl">
+          <nav className="bg-white py-3 px-6 rounded-3xl border border-[#f4f4f7]">
+            <div className="flex justify-between items-center">
+              <div className="">
+                <Link className="block relative h-[3.5rem] w-[8rem]" href={"/"}>
+                  <AppLogo className="absolute object-contain w-full h-full top-0 bottom-0 right-0 left-0" />
+                </Link>
+              </div>
+
+              <div className="flex items-center gap-4">
+                <FooterNavButton icon={Send} message={t("sendMoney")} popover />
+                <FooterNavButton
+                  icon={Repetition}
+                  message={t("paymentLink")}
+                  popover
+                />
+                <FooterNavButton
+                  icon={AccountIcon}
+                  message={t("account")}
+                  popover
+                />
+                <FooterNavButton
+                  icon={Transactions}
+                  message="Transactions"
+                  popover
+                />
+                <FooterNavButton
+                  icon={Point}
+                  message={t("salesPoints")}
+                  popover
+                />
+                <FooterNavButton
+                  icon={Appro}
+                  message="Approvisionnement"
+                  popover
+                />
+                <FooterNavButton
+                  icon={Integration}
+                  message="Intégration"
+                  popover
+                />
+              </div>
+              <div className="flex items-center gap-4">
+                <button>
+                  <IoNotifications className="h-8 w-8 text-gray-400 hover:text-black " />
+                </button>
+                <button>
+                  <FaCog className="h-8 w-8 text-gray-400 hover:text-black " />
+                </button>
+                <button className="p-3 rounded-xl bg-orange-100 text-orange-300">
+                  <p>JV</p>
+                </button>
+              </div>
+            </div>
+          </nav>
         </div>
-      )}
-      <div className="flex items-center gap-4">
-        <LocaleSwitcher />
-        <ThemeSwitcher className="text-gray-400 hover:text-black" />
-        <button>
-          <IoNotifications className="h-8 w-8 text-gray-400 hover:text-black " />
-        </button>
-        <button>
-          <FaCog className="h-8 w-8 text-gray-400 hover:text-black " />
-        </button>
-        <button className="p-3 rounded-xl bg-orange-100 text-orange-300">
-          <p>JV</p>
-        </button>
       </div>
     </footer>
   );

@@ -14,8 +14,8 @@ const AccountCard: React.FC<AccountProps> = ({ title, balance }) => {
 
   const t = useTranslations("Dashboard");
   return (
-    <div className="bg-white dark:bg-black rounded-2xl space-y-3 p-4 2xl:w-52 xl:w-44 w-full">
-      <div className="flex w-full gap-2">
+    <div className="snap-end shrink-0 w-[30%] 2xl:w-[24%] bg-white flex flex-col justify-between space-y-8 2xl:space-y-8 p-4 rounded-3xl">
+      <div className="flex w-full justify-between">
         <div className="w-full">
           <Button className="p-2" isIconOnly>
             <Image src={Wallet} alt="Wallet" width={36} height={36} />
