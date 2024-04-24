@@ -26,7 +26,7 @@ export default function InputText({
         type={isPassword ? (isVisible ? "text" : "password") : props.type}
         className={clsx(
           "bg-gray-light font-light focus:border-0 focus:outline-none  text-sm px-5 py-[16px] w-full rounded-xl",
-          props.value && isInvalid && "bg-white border border-danger focus:ring-1 focus:ring-danger",
+          isInvalid && "bg-white border border-danger focus:ring-1 focus:ring-danger",
           props.value && !isInvalid && "bg-white border border-gray-light focus:ring-1 focus:ring-gray-light",
          
           "group-data-[focused=true]:bg-gray-light group-data-[focused=true]:border-0",

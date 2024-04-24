@@ -20,6 +20,24 @@ const config: Config = {
             transform: "rotate(360deg)",
           },
         },
+        wave: {
+          "0%, 100%": {
+            height: "5px",
+            transform: "translateY(0px)",
+            backgroundColor: "#03a9f4",
+          },
+          "25%": {
+            height: "30px",
+            transform: "translateY(15px)",
+            backgroundColor: "#81d4fa",
+          },
+          "50%": {
+            height: "5px",
+            transform: "translateY(0px)",
+            backgroundColor: "#03a9f4",
+          },
+        },
+
         "rotate-and-reverse": {
           "0%": { transform: "rotate(0deg)", fill: "black" },
           "20%": { transform: "rotate(360deg)", fill: "#e00000" },
@@ -32,6 +50,7 @@ const config: Config = {
       animation: {
         "spin-2s": "spin 0.2s linear",
         "rotate-reverse-4s": "rotate-and-reverse 4s ease-in-out",
+        wave: "wave 1.5s infinite ease-in-out",
       },
       backgroundImage: (theme) => ({
         "login-web-bg-light": "url('../assets/images/White-mode-cover.png')",
@@ -47,11 +66,13 @@ const config: Config = {
         danger: "#e00000",
         "gray-light": "#f0f0f0",
         "gray-medium": "#c1c1c1",
+        "gray-extralight": "#fbfbfb",
       },
       borderColor: {
         danger: "#e00000",
         "gray-light": "#f0f0f0",
         "gray-medium": "#c1c1c1",
+        "gray-light-100":"#efefef"
       },
       ringColor: {
         danger: "#e00000",

@@ -8,7 +8,7 @@
     "openAccount": "Ouvrir mon compte",
     "formError": " Identifiant ou clé d'accès incorrect, réessayez",
     "copyright": " Copyright © 2023 Paynah. Tous droits réservés",
-    "confidentiality": " Polique de confidentialité",
+    "confidentiality": " Politique de confidentialité",
     "loginInputErrorMessage": "Le champ Identifiant est requis",
     "passwordInputErrorMessage": "Le champ clé d'accès est requis",
     "emailError":"Le champ Identifiant doit être un email"

@@ -13,6 +13,9 @@ import LockIcon from "@/components/Icon/LockIcon";
 import { clsx } from "clsx";
 import Link from "next/link";
 import { userData } from "@/data/user";
+import Loader from "@/components/Loader";
+import { ScaleLoader } from "react-spinners";
+import LocaleSwitcherMobile from "@/components/LocaleSwitcherMobile";
 
 type Props = {
   params: { locale: string };
@@ -45,9 +48,11 @@ export default function IndexPage({ params: { locale } }: Props) {
     setTimeout(() => {
       if (data.email == userData.email && data.password == userData.password) {
         router.push("/dashboard");
+        setLoading(false);
         reset();
       } else {
         setFormError(true);
+        setLoading(false);
       }
     }, 2000);
 
@@ -56,19 +61,37 @@ export default function IndexPage({ params: { locale } }: Props) {
   console.log(errors);
 
   return (
-    <main className={`main-container relative`}>
-      <header className="flex absolute left-8 top-8">
-        <div>
-          <AppLogo />
+    <div className={`main-container`}>
+      <header className="md:block hidden">
+        <div className="max-w-screen-2xl mx-auto py-5 px-4 md:px-6 lg:px-8">
+          <Link className="block relative h-[3.5rem] w-[8rem]" href={"/"}>
+            <AppLogo className="absolute object-contain w-full h-full top-0 bottom-0 right-0 left-0" />
+          </Link>
         </div>
       </header>
-      <section className="form-section px-4">
-        <div className="space-y-16 w-full">
+
+      <header className="md:hidden block">
+        <div className="max-w-screen-2xl border-b border-[#efefef] bg-[#fbfbfb] mx-auto pt-4 pb-3 px-4 md:px-6 lg:px-8">
+          <div className="flex space-x-2 justify-between">
+            <div className="inline-flex space-x-2">
+              <Link className="block relative h-[2.2rem] w-[6rem]" href={"/"}>
+                <AppLogo className="absolute object-contain w-full h-full top-0 bottom-0 right-0 left-0" />
+              </Link>
+            </div>
+            <div>
+              <LocaleSwitcherMobile />
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main className="form-section px-4 mt-6">
+        <div className="space-y-[60px] w-full">
           <p className="md:text-3xl font-semibold text-2xl text-center">
             {t("title")}
           </p>
           <div
-            className={`w-full space-y-6 form-check-valid border-1 py-4 px-16 rounded-3xl`}
+            className={`w-full space-y-6 form-check-valid border-1 py-6 md:px-16 px-4 rounded-3xl`}
           >
             <div className="flex flex-col justify-center items-center">
               <div>
@@ -136,17 +159,26 @@ export default function IndexPage({ params: { locale } }: Props) {
                     {t("forgotPassword")}
                   </Link>
                 </div>
-                <div>
-                  <Button type="submit" className="submit-button">
+                <div className="relative">
+                  <Button
+                    isDisabled={loading}
+                    type="submit"
+                    className="submit-button"
+                  >
                     {t("unlock")}
                   </Button>
+                  {loading && (
+                    <div className="absolute inset-0 m-auto w-full h-full bg-[#4b4b4b] bg-opacity-100 flex pl-[42%] items-center rounded-3xl">
+                      <ScaleLoader width={3} height={15} color="white" />
+                    </div>
+                  )}
                 </div>
               </div>
             </form>
           </div>
         </div>
 
-        <div className="my-7">
+        <div className="my-[28px]">
           <Link
             href="/"
             className="text-sm cursor-pointer font-medium hover:font-semibold transition-all duration-100"
@@ -154,23 +186,43 @@ export default function IndexPage({ params: { locale } }: Props) {
             {t("openAccount")}
           </Link>
         </div>
-      </section>
+      </main>
+      {/*** Web footer ****/}
+      <footer className="hidden md:block">
+        <div className="max-w-screen-2xl mx-auto py-5 px-4 mt-[2.401rem] md:px-6 lg:px-8">
+          <div className="flex space-x-3 items-center justify-between">
+            <div>
+              <LocaleSwitcher />
+            </div>
+            <div className="flex items-center gap-2">
+              <p className="text-[12px] md:text-start text-center">
+                {t("copyright")}
+              </p>
+              <p className="text-[12px]">{"|"}</p>
 
-      <footer className="footer">
-        <div>
-          <LocaleSwitcher />
-        </div>
-        <div className="flex items-center gap-2">
-          <p className="text-[12px] md:text-start text-center">
-            {t("copyright")}
-          </p>
-          <p className="text-[12px]">{"|"}</p>
-
-          <p className="text-[12px] md:text-start text-center">
-            {t("confidentiality")}
-          </p>
+              <p className="text-[12px] md:text-start text-center">
+                {t("confidentiality")}
+              </p>
+            </div>
+          </div>
         </div>
       </footer>
-    </main>
+      {/***** Mobile footer *****/}
+      <footer className="block md:hidden">
+        <div className="max-w-screen-2xl border-t border-[#efefef] bg-[#fbfbfb] py-4 px-4 md:px-6 lg:px-8">
+          <div className="flex items-center">
+            <div className="font-light text-xs space-y-1 flex flex-col items-center justify-center w-full">
+              <Link
+                href={"/"}
+                className="hover:underline underline-offset-1 text-center duration-30"
+              >
+                {t("confidentiality")}
+              </Link>
+              <p className="text-center"> {t("copyright")}</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
   );
 }
