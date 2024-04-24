@@ -9,7 +9,7 @@ import { useState } from "react";
 import { useRouter } from "@/navigation";
 import AppLogo from "@/components/AppLogo";
 import InputText from "@/components/InputText";
-import LockIcon from "@/components/Icon/LockIcon";
+import LockIcon from "@/components/Icons/LockIcon";
 import { clsx } from "clsx";
 import Link from "next/link";
 import { userData } from "@/data/user";

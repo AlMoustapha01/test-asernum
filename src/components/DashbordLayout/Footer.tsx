@@ -1,20 +1,24 @@
 "use client";
 
-import { useTheme } from "next-themes";
+import { Tooltip } from "@nextui-org/react";
 import { IoNotifications } from "react-icons/io5";
-import { FaCog } from "react-icons/fa";
 import FooterNavButton from "../FooterNavButton";
 import { useTranslations } from "next-intl";
 import AppLogo from "../AppLogo";
 import Link from "next/link";
-import SpaceIcon from "../Icon/SpaceIcon";
-import IntegrationIcon from "../Icon/IntegrationIcon";
-import LinkIcon from "../Icon/LinkIcon";
-import TransactionIcon from "../Icon/TransactionIcon";
-import LocationIcon from "../Icon/LocationIcon";
-import DownloadIcon from "../Icon/DownloadIcon";
-import AccountIcon from "../Icon/AccountIcon";
-import SendIcon from "../Icon/SendIcon";
+import SpaceIcon from "../Icons/SpaceIcon";
+import IntegrationIcon from "../Icons/IntegrationIcon";
+import LinkIcon from "../Icons/LinkIcon";
+import TransactionIcon from "../Icons/TransactionIcon";
+import LocationIcon from "../Icons/LocationIcon";
+import DownloadIcon from "../Icons/DownloadIcon";
+import AccountIcon from "../Icons/AccountIcon";
+import SendIcon from "../Icons/SendIcon";
+import CogIcon from "../Icons/CogIcon";
+import LogoutIcon from "../Icons/LogoutIcon";
+
+import NotificationIcon from "../Icons/NotificationIcon";
+import Icon from "../Icon";
 
 export default function Footer() {
   const t = useTranslations("Dashboard");
@@ -34,29 +38,36 @@ export default function Footer() {
 
               <div className="flex items-center gap-4">
                 <FooterNavButton
-                  icon={<SpaceIcon className={`w-6 h-6 ${isActive ? "fill-white":"fill-[#afafaf]" } `}/>}
+                  icon={
+                    <SpaceIcon
+                      strokeWidth={2}
+                      className={`w-6 h-6 ${
+                        isActive ? "fill-white" : "fill-[#afafaf]"
+                      } `}
+                    />
+                  }
                   message={"Serenity space"}
                   link="/dashboard"
                   isActive
                 />
                 <FooterNavButton
-                  icon={<SendIcon className="w-6 h-6 fill-[#afafaf]" />}
+                  icon={<SendIcon strokeWidth={2} className="w-6 h-6 fill-[#afafaf]" />}
                   message={t("sendMoney")}
                   link="/dashboard"
                 />
 
                 <FooterNavButton
-                  icon={<LinkIcon className="w-6 h-6 fill-[#afafaf]" />}
+                  icon={<LinkIcon strokeWidth={2} className="w-6 h-6 fill-[#afafaf]" />}
                   message={t("paymentLink")}
                   link="/dashboard"
                 />
                 <FooterNavButton
-                  icon={<AccountIcon className="w-6 h-6 fill-[#afafaf]" />}
+                  icon={<AccountIcon strokeWidth={2} className="w-6 h-6 fill-[#afafaf]" />}
                   message={t("account")}
                   link="/dashboard"
                 />
                 <FooterNavButton
-                  icon={<TransactionIcon className="w-6 h-6 fill-[#afafaf]" />}
+                  icon={<TransactionIcon strokeWidth={2} className="w-6 h-6 fill-[#afafaf]" />}
                   message="Transactions"
                   link="/dashboard"
                 />
@@ -66,24 +77,29 @@ export default function Footer() {
                   link="/dashboard"
                 />
                 <FooterNavButton
-                  icon={<DownloadIcon className="w-6 h-6 fill-[#afafaf]" />}
+                  icon={<DownloadIcon strokeWidth={2} className="w-6 h-6 fill-[#afafaf]" />}
                   message="Approvisionnement"
                   link="/dashboard"
                 />
                 <FooterNavButton
-                  icon={<IntegrationIcon className="w-6 h-6 fill-[#afafaf]" />}
+                  icon={<IntegrationIcon strokeWidth={2} className="w-6 h-6 fill-[#afafaf]" />}
                   message="Intégration"
                   link="/dashboard"
                 />
               </div>
               <div className="flex items-center gap-4">
                 <button>
-                  <IoNotifications className="h-8 w-8 text-gray-400 hover:text-black " />
+                  <NotificationIcon className="h-6 w-6 fill-[#afafaf] hover:fill-black duration-200 transition-all " />
                 </button>
                 <button>
-                  <FaCog className="h-8 w-8 text-gray-400 hover:text-black " />
+                  <CogIcon className="h-6 w-6 fill-[#afafaf] hover:fill-black duration-200 transition-all " />
                 </button>
-                <button className="p-3 rounded-xl bg-orange-100 text-orange-300">
+                <Tooltip content={"Deconnexion"}>
+                  <button>
+                    <LogoutIcon className="h-6 w-6 text-[#afafaf] hover:text-red-400 duration-200 transition-all " />
+                  </button>
+                </Tooltip>
+                <button className="p-3 rounded-xl bg-[#ffc5b0] font-medium text-[#fe733c]">
                   <p>JV</p>
                 </button>
               </div>
