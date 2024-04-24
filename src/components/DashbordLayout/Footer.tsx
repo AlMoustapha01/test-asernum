@@ -1,26 +1,25 @@
 "use client";
-import LogoWhite from "@/assets/images/PAYNAH-PRO LETTERMARK-BLACK.png";
-import LogoDark from "@/assets/images/W-PAYNAH-PRO-LETTERMARK.png";
+
 import { useTheme } from "next-themes";
-import Image from "next/image";
 import { IoNotifications } from "react-icons/io5";
 import { FaCog } from "react-icons/fa";
 import FooterNavButton from "../FooterNavButton";
-import AccountIcon from "@/assets/ASSET DASHBOARD/10a38a4201d6ae9383f151042ecd24ef.svg";
-import Appro from "@/assets/ASSET DASHBOARD/223ed637876b0981285cd3161e3297dd.svg";
-import Repetition from "@/assets/ASSET DASHBOARD/Grille de répétition 8.svg";
-import Transactions from "@/assets/ASSET DASHBOARD/Groupe 118.svg";
-import Integration from "@/assets/ASSET DASHBOARD/Groupe 122.svg";
-import Point from "@/assets/ASSET DASHBOARD/Groupe 128.svg";
-import Send from "@/assets/ASSET DASHBOARD/Groupe 460.svg";
 import { useTranslations } from "next-intl";
 import AppLogo from "../AppLogo";
 import Link from "next/link";
+import SpaceIcon from "../Icon/SpaceIcon";
+import IntegrationIcon from "../Icon/IntegrationIcon";
+import LinkIcon from "../Icon/LinkIcon";
+import TransactionIcon from "../Icon/TransactionIcon";
+import LocationIcon from "../Icon/LocationIcon";
+import DownloadIcon from "../Icon/DownloadIcon";
+import AccountIcon from "../Icon/AccountIcon";
+import SendIcon from "../Icon/SendIcon";
 
 export default function Footer() {
   const t = useTranslations("Dashboard");
-  const { theme } = useTheme();
 
+  const isActive = true;
   return (
     <footer className="fixed inset-x-0 bottom-5 z-[90] bg-transparent">
       <div className="relative">
@@ -34,36 +33,47 @@ export default function Footer() {
               </div>
 
               <div className="flex items-center gap-4">
-                <FooterNavButton icon={Send} message={t("sendMoney")} popover />
                 <FooterNavButton
-                  icon={Repetition}
+                  icon={<SpaceIcon className={`w-6 h-6 ${isActive ? "fill-white":"fill-[#afafaf]" } `}/>}
+                  message={"Serenity space"}
+                  link="/dashboard"
+                  isActive
+                />
+                <FooterNavButton
+                  icon={<SendIcon className="w-6 h-6 fill-[#afafaf]" />}
+                  message={t("sendMoney")}
+                  link="/dashboard"
+                />
+
+                <FooterNavButton
+                  icon={<LinkIcon className="w-6 h-6 fill-[#afafaf]" />}
                   message={t("paymentLink")}
-                  popover
+                  link="/dashboard"
                 />
                 <FooterNavButton
-                  icon={AccountIcon}
+                  icon={<AccountIcon className="w-6 h-6 fill-[#afafaf]" />}
                   message={t("account")}
-                  popover
+                  link="/dashboard"
                 />
                 <FooterNavButton
-                  icon={Transactions}
+                  icon={<TransactionIcon className="w-6 h-6 fill-[#afafaf]" />}
                   message="Transactions"
-                  popover
+                  link="/dashboard"
                 />
                 <FooterNavButton
-                  icon={Point}
+                  icon={<LocationIcon className="w-6 h-6 fill-[#afafaf]" />}
                   message={t("salesPoints")}
-                  popover
+                  link="/dashboard"
                 />
                 <FooterNavButton
-                  icon={Appro}
+                  icon={<DownloadIcon className="w-6 h-6 fill-[#afafaf]" />}
                   message="Approvisionnement"
-                  popover
+                  link="/dashboard"
                 />
                 <FooterNavButton
-                  icon={Integration}
+                  icon={<IntegrationIcon className="w-6 h-6 fill-[#afafaf]" />}
                   message="Intégration"
-                  popover
+                  link="/dashboard"
                 />
               </div>
               <div className="flex items-center gap-4">
