@@ -68,6 +68,9 @@
     "expired": "Expiré",
     "addAccount": "Ajouter un compte",
     "approvisionment": "Approvisionnement",
-    "account": "Comptes"
+    "account": "Comptes",
+    "creditAccount":"Comptes à créditer",
+    "availableSoon":"Bientôt disponible"
+
   }
 }

@@ -70,7 +70,9 @@
   "expired": "Expired",
   "addAccount": "Add Account",
   "approvisionment":"Approvisionment",
-  "account":"Account"
-
-  }
+  "account":"Account",
+  "creditAccount":"Accounts to credit",
+  "availableSoon":"Available soon"
+  
+}
 }
