@@ -1,7 +1,14 @@
 "use client";
 import AccountCard from "@/components/AccountCard";
 import DashboardLayout from "@/components/DashbordLayout";
-import { Button, Input, Tab, Tabs } from "@nextui-org/react";
+import {
+  Button,
+  Input,
+  Select,
+  SelectItem,
+  Tab,
+  Tabs,
+} from "@nextui-org/react";
 
 import SellPointEmpty from "@/assets/ASSET DASHBOARD/Groupe 298.svg";
 import SellApprobEmpty from "@/assets/ASSET DASHBOARD/Groupe 305.svg";
@@ -12,6 +19,8 @@ import TransactionTable from "@/components/Datatable";
 import { useTranslations } from "next-intl";
 import CreditCard from "@/components/CreditCard";
 import Operation from "@/components/Operation";
+import Icon from "@/components/Icon";
+import InputTextLabelFloat from "@/components/InputLabelFloat";
 export default function DashbordPage() {
   const t = useTranslations("Dashboard");
 
@@ -21,11 +30,24 @@ export default function DashbordPage() {
     { title: "Factures", balance: 6873456 },
   ];
 
+  const debits = [
+    {
+      label: "Compte principale",
+      value: "Compte principale",
+    },
+    {
+      label: "Salariale",
+      value: "Salariale",
+    },
+  ];
+
   return (
     <DashboardLayout>
       <div className="pb-10">
         <div className="xk-l:flex md:grid md:grid-cols-2 justify-between items-center">
-          <p className="text-lg text-[#767676] tracking-tight">{t("serenitySpace")}</p>
+          <p className="text-lg text-[#767676] tracking-tight">
+            {t("serenitySpace")}
+          </p>
           <div className="flex gap-2 items-center bg-white dark:bg-black p-1 px-4 rounded-lg">
             <p className="text-nowrap whitespace-nowrap text-xs">
               {t("doYouHaveConcerns")}
@@ -39,7 +61,7 @@ export default function DashbordPage() {
         <div className="flex flex-grow gap-3 mt-2.5">
           <div className="w-[25%] space-y-3">
             <CreditCard />
-            <div className="flex flex-col w-full bg-white dark:bg-black bg-cover rounded-xl h-3/4 p-2">
+            <div className="flex flex-col w-full h-[70%] bg-white dark:bg-black bg-cover rounded-xl p-2">
               <div>
                 <h1 className="text-gray-700 text-start font-semibold text-xl p-2">
                   {t("quickActions")}
@@ -59,14 +81,49 @@ export default function DashbordPage() {
                   title="Lien de paiment"
                   className="w-full text-[11px]"
                 >
-                  <Operation />
+                  <div className="flex flex-col gap-3">
+                    <div className="relative">
+                      <label
+                        className="absolute left-4 top-[-9px] z-40 bg-white"
+                        htmlFor="country"
+                      >
+                        Comptes à créditer
+                      </label>
+                      <Select
+                        defaultSelectedKeys={[debits[0].value]}
+                        className="border-black"
+                        variant="bordered"
+                        classNames={{
+                          trigger:
+                            "py-7 bg-white border border-gray-light hover:bg-white",
+                        }}
+                      >
+                        {debits.map((cur) => (
+                          <SelectItem key={cur.value} value={cur.value}>
+                            {cur.label}
+                          </SelectItem>
+                        ))}
+                      </Select>
+                    </div>
+
+                    <div className="relative">
+                      <InputTextLabelFloat label={t("amount")} />
+                      <div className="absolute right-0 top-0 h-full">
+                        <Button className="bg-black text-white rounded-lg h-full">
+                          <Icon name="send" className="text-white" />
+                        </Button>
+                      </div>
+                    </div>
+                  </div>
                 </Tab>
                 <Tab
                   key="Rechargement"
                   title="Rechargement"
-                  className="w-full text-[11px]"
+                  className="w-full h-full text-[11px]"
                 >
-                  <Operation />
+                  <div className="flex justify-center items-center w-full h-full">
+                          <p className="text-xs text-[#7d7d7d] mt-1">Bientôt disponible</p>
+                  </div>
                 </Tab>
               </Tabs>
             </div>
