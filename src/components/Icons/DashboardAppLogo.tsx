@@ -2,7 +2,7 @@ import { SVGProps } from "react";
 
 interface IconProps extends SVGProps<SVGSVGElement> {}
 
-export default function AppLogo({ ...props }: IconProps) {
+export default function DashboardAppLogo({ ...props }: IconProps) {
   return (
     <svg
       {...props}

@@ -1,83 +1,107 @@
 import React from "react";
-import { Select, SelectItem, Avatar, SelectProps } from "@nextui-org/react";
+import {
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  Select,
+  SelectItem,
+} from "@nextui-org/react";
+import Image, { StaticImageData } from "next/image";
+import Icon from "../Icon";
 
 interface EnterpriseSelectorProps {
   data: {
     name: string;
-    icon: string;
+    icon: StaticImageData;
     code: string;
-  }[];
+  };
 }
 export default function EnterpriseSelector({
   data,
-}: EnterpriseSelectorProps) {
+}: Readonly<EnterpriseSelectorProps>) {
+  const code = [
+    {
+      label: "4567589988",
+      value: "4567589988",
+    },
+  ];
   return (
-    <Select
-      items={data}
-      className="w-[200px]"
-      variant="bordered"
-      defaultSelectedKeys={[data[0].code]}
-      classNames={{
-        label: "group-data-[filled=true]:-translate-y-5",
-        trigger: "min-h-16",
-        listboxWrapper: "max-h-[400px]",
-      }}
-      listboxProps={{
-        itemClasses: {
-          base: [
-            "rounded-md",
-            "text-default-500",
-            "transition-opacity",
-            "data-[hover=true]:text-foreground",
-            "data-[hover=true]:bg-default-100",
-            "dark:data-[hover=true]:bg-default-50",
-            "data-[selectable=true]:focus:bg-default-50",
-            "data-[pressed=true]:opacity-70",
-            "data-[focus-visible=true]:ring-default-500",
-          ],
-        },
-      }}
-      popoverProps={{
-        classNames: {
-          base: "before:bg-default-200",
-          content: "p-0 border-small border-divider bg-background",
-        },
-      }}
-      renderValue={(items) => {
-        return items.map((item) => (
-          <div key={item.key} className="flex items-center gap-2">
-            <Avatar
-              alt={item.data?.name}
-              className="flex-shrink-0 rounded-md bg-white p-2 border-1 border-black border-opacaity-10"
-              size="sm"
-              src={item.data?.icon}
-            />
-            <div className="flex flex-col">
-              <span>{item.data?.name}</span>
-              <span className="text-default-500 text-tiny">
-                ({item.data?.code})
-              </span>
-            </div>
-          </div>
-        ));
-      }}
-    >
-      {(data) => (
-        <SelectItem key={data.code} textValue={data.name}>
-          <div className="flex gap-2 items-center">
-            <Avatar
-              alt={data.name}
-              className="flex-shrink-0"
-              size="sm"
+    <Popover placement="bottom" showArrow={true}>
+      <PopoverTrigger>
+        <div className="flex items-center gap-2 bg-[#fafafa] rounded-xl border border-[#dadadb] p-2">
+          <div className="lex-shrink-0 rounded-xl bg-white p-2 border-1 border-black border-opacity-10 border-opacaity-10">
+            <Image
+              className="h-9 w-11"
               src={data.icon}
+              alt="enterprise logo"
             />
-            <div className="flex flex-col">
-              <span className="text-small">{data.name}</span>
-              <span className="text-tiny text-default-400">{data.code}</span>
+          </div>
+
+          <div className="flex flex-col">
+            <span className="text-sm font-semibold">{data.name}</span>
+            <span className="text-default-500 text-tiny">{data.code}</span>
+          </div>
+          <div>
+            <Icon name="chevron-down" />
+          </div>
+        </div>
+      </PopoverTrigger>
+      <PopoverContent className="flex flex-col w-[450px] bg-[#f3f4f7]">
+        <div className="px-1 py-2 w-full bg-[#f3f4f7]">
+          <div className="p-4 bg-white rounded-tr-2xl rounded-tl-2xl">
+            <div className="w-full flex justify-between items-center">
+              <Select variant={'faded'} selectedKeys={["4567589988"]} className="w-56 border-black">
+                {code.map((cur) => (
+                  <SelectItem key={cur.value} value={cur.value}>
+                    {cur.label}
+                  </SelectItem>
+                ))}
+              </Select>
+              <button>
+              <Icon name="x" />
+              </button>
             </div>
           </div>
-        </SelectItem>
-      )}
-    </Select>
+          <div className="flex flex-col items-center justify-center">
+          <Image
+              className="h-36 w-36"
+              src={data.icon}
+              alt="enterprise logo"
+            />
+            <p>{code[0].label}</p>
+          </div>
+          <div className="account-infos mt-8">
+            <div className="px-6 pt-5 pb-6 bg-white rounded-3xl">
+              <div className="grid grid-cols-2 gap-x-5 gap-y-2">
+                <div>
+                  <div className="inline-flex flex-col">
+                    <span className="font-light text-xs text-[#626262] mb-[.1rem]">Nom du compte</span>
+                    <span className="uppercase text-xs font-semibold">Compte Principal</span>
+                  </div>
+                </div>
+              <div>
+              <div className="inline-flex flex-col">
+                <span className="font-light text-xs text-[#626262] mb-[.1rem]">Numéro du compte</span>
+                <span className="uppercase text-xs font-semibold">4567589988</span>
+              </div>
+            </div>
+            <div>
+              <div className="inline-flex flex-col">
+                <span className="font-light text-xs text-[#626262] mb-[.1rem]">Solde du compte</span>
+                <span className="uppercase text-xs font-semibold">0&nbsp;F CFA</span>
+              </div>
+            </div>
+            <div>
+              <div className="inline-flex flex-col">
+                <span className="font-light text-xs text-[#626262] mb-[.1rem]">Solde effectif disponible</span>
+                <span className="uppercase text-xs font-semibold">0&nbsp;F CFA</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        </div>
+      </PopoverContent>
+    </Popover>
   );
 }
