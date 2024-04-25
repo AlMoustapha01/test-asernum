@@ -1,6 +1,6 @@
 import { DetailedHTMLProps, InputHTMLAttributes, useState } from "react";
 import { clsx } from "clsx";
-import { KeyIcon } from "lucide-react";
+import KeyIcon from "../Icons/KeyIcon";
 
 interface InputTextProps
   extends DetailedHTMLProps<
@@ -41,8 +41,10 @@ export default function InputText({
           onClick={toggleVisibility}
         >
           <KeyIcon
+            width={30}
+            height={30}
             className={`text-2xl ${
-              !isVisible ? "text-gray-medium " : "text-gray-800"
+              !isVisible ? "fill-gray-medium " : "fill-gray-800"
             }`}
           />
         </button>

@@ -4,7 +4,10 @@ interface IconProps extends SVGProps<SVGSVGElement> {}
 
 export default function KeyIcon({ ...props }: IconProps) {
   return (
-    <svg {...props} viewBox="0 0 28.065 19.104">
+    <svg
+      {...props}
+      viewBox="0 0 28.065 19.104"
+    >
       <g transform="translate(0.325) rotate(1)">
         <path
           d="M0,0H18.622V18.622H0Z"

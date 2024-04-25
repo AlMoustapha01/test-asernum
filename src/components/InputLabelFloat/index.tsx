@@ -46,9 +46,12 @@ export default function InputTextLabelFloat({
           onClick={toggleVisibility}
         >
           <KeyIcon
-            className={`text-2xl ${
-              !isVisible ? "text-gray-medium " : "text-gray-800"
-            }`}
+           width={30}
+           height={30}
+           className={`text-2xl ${
+             !isVisible ? "fill-gray-medium " : "fill-gray-800"
+           }`}
+            
           />
         </button>
       )}
