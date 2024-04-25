@@ -69,6 +69,10 @@ export default function EnterpriseSelector({
               alt="enterprise logo"
             />
             <p>{code[0].label}</p>
+            <button className="flex items-center gap-2 rounded-3xl p-2 px-5 border bg-transparent border-black hover:bg-black duration-200 hover:text-white transition-all">
+              <Icon name="download" />
+              <p>Télécharger le Paynah ID</p>
+            </button>
           </div>
           <div className="account-infos mt-8">
             <div className="px-6 pt-5 pb-6 bg-white rounded-3xl">

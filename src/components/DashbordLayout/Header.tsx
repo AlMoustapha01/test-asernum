@@ -4,6 +4,7 @@ import { useTranslations } from "next-intl";
 import EnterpriseSelector from "../EnterPriseSelector";
 import logoTotal from "@/assets/images/Logo_TotalEnergies.png";
 import DashboardAppLogo from "../Icons/DashboardAppLogo";
+import BalanceDisplay from "../BalanceDisplay/iindex";
 
 export default function Header() {
   const t = useTranslations("Dashboard");
@@ -15,20 +16,8 @@ export default function Header() {
           <DashboardAppLogo />
           <div className="flex md:flex-row flex-col items-center 2xl:space-x-32 xl:space-x-28">
             <div className="flex flex-col gap-1">
-              <p>
-                {t.rich("header.balance", {
-                  strong: (chunks) => <strong>{userData.balance}</strong>,
-                })}
-                FCFA
-              </p>
-              <p>
-                {t.rich("header.balance-available", {
-                  strong: (chunks) => (
-                    <strong>{userData.balance_available}</strong>
-                  ),
-                })}
-                FCFA
-              </p>
+              <BalanceDisplay label={"header.balance"} data={userData.balance} />
+              <BalanceDisplay label={"header.balance-available"} data={userData.balance_available} />
             </div>
             <div>
               <EnterpriseSelector
@@ -39,7 +28,6 @@ export default function Header() {
                 }}
               />
             </div>
-            
           </div>
         </div>
       </div>
