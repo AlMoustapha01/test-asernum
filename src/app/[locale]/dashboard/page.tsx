@@ -1,9 +1,8 @@
-"use client";
+"use client"
 import DashboardLayout from "@/components/DashbordLayout";
 import { Button, Input } from "@nextui-org/react";
 
 import SellPointEmpty from "@/assets/ASSET DASHBOARD/Groupe 298.svg";
-import SellApprobEmpty from "@/assets/ASSET DASHBOARD/Groupe 305.svg";
 import Image from "next/image";
 import { IoIosArrowForward } from "react-icons/io";
 import { BsFillSendFill } from "react-icons/bs";
@@ -12,6 +11,9 @@ import CardOperations from "@/components/DashbordLayout/CardOperations";
 import TransactionsHistory from "@/components/DashbordLayout/TransactionsHistory";
 import { useTranslations } from "next-intl";
 import Transaction from "@/components/Transaction";
+
+
+
 export default function DashbordPage() {
   const t = useTranslations("Dashboard");
 

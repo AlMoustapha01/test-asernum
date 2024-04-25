@@ -1,7 +1,6 @@
 import { DetailedHTMLProps, InputHTMLAttributes, useState } from "react";
 import { clsx } from "clsx";
 import { IoMdKey } from "react-icons/io";
-import { motion } from "framer-motion";
 
 interface InputTextProps
   extends DetailedHTMLProps<
@@ -18,7 +17,7 @@ export default function InputTextLabelFloat({
   isPassword,
   label,
   ...props
-}: InputTextProps) {
+}: Readonly<InputTextProps>) {
   const [isVisible, setIsVisible] = useState(false);
 
   const toggleVisibility = () => setIsVisible(!isVisible);
