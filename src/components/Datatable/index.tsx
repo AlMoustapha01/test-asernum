@@ -10,8 +10,8 @@ import {
   Tooltip,
   ChipProps,
 } from "@nextui-org/react";
-import { BiDotsVertical, BiTrash } from "react-icons/bi";
 import { useTranslations } from "next-intl";
+import Icon from "../Icon";
 
 const statusColorMap: Record<string, ChipProps["color"]> = {
   Effectué: "success",
@@ -132,12 +132,12 @@ export default function DataTable() {
             <div className="relative flex items-center gap-2">
               <Tooltip content="Details">
                 <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
-                  <BiDotsVertical />
+                  <Icon name="ellipsis-vertical" />
                 </span>
               </Tooltip>
               <Tooltip content="Supprimer">
                 <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
-                  <BiTrash />
+                  <Icon name="trash-2" />
                 </span>
               </Tooltip>
             </div>

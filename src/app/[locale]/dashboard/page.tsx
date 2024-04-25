@@ -1,16 +1,12 @@
 "use client"
 import DashboardLayout from "@/components/DashbordLayout";
 import { Button, Input } from "@nextui-org/react";
-
-import SellPointEmpty from "@/assets/ASSET DASHBOARD/Groupe 298.svg";
-import Image from "next/image";
-import { IoIosArrowForward } from "react-icons/io";
-import { BsFillSendFill } from "react-icons/bs";
-
 import CardOperations from "@/components/DashbordLayout/CardOperations";
 import TransactionsHistory from "@/components/DashbordLayout/TransactionsHistory";
 import { useTranslations } from "next-intl";
 import Transaction from "@/components/Transaction";
+import SellPointEmpty from "@/components/Icons/SellPointEmpty";
+import Icon from "@/components/Icon";
 
 
 
@@ -31,7 +27,7 @@ export default function DashbordPage() {
             </p>
             <Input
               placeholder="Ecrivez votre question"
-              endContent={<BsFillSendFill className="text-gray-300" />}
+              endContent={<Icon name="send" className="text-gray-300" />}
             ></Input>
           </div>
         </div>
@@ -53,7 +49,7 @@ export default function DashbordPage() {
                   <Button
                     variant="light"
                     className="inline-flex text-xs text-[#909090] hover:underline duration-200 mb-1"
-                    endContent={<IoIosArrowForward className="text-gray-500" />}
+                    endContent={<Icon name="arrow-right" className="text-gray-500" />}
                   >
                     {t("seeAll")}
                   </Button>
@@ -63,13 +59,11 @@ export default function DashbordPage() {
 
               <div className="h-full flex justify-center items-center">
                 <div className="inline-flex flex-col justify-center">
-                  <Image
-                    src={SellPointEmpty}
+                  <SellPointEmpty
                     className="h-[4rem] w-auto"
-                    alt="Sell Point Empty"
                   />
                   <p className="text-xs text-[#7d7d7d] mt-1">
-                    Aucun point de vente retrouvé
+                    {t('sellPointEmpty')}
                   </p>
                 </div>
               </div>
@@ -84,7 +78,7 @@ export default function DashbordPage() {
                   <Button
                     variant="light"
                     className="inline-flex text-xs text-[#909090] hover:underline duration-200 mb-1"
-                    endContent={<IoIosArrowForward className="text-gray-500" />}
+                    endContent={<Icon name="arrow-right" className="text-gray-500" />}
                   >
                     {t("seeAll")}
                   </Button>

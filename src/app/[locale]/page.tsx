@@ -1,7 +1,7 @@
 "use client";
 import { useTranslations } from "next-intl";
 import LocaleSwitcher from "@/components/LocaleSwitcher";
-import { Button, Input } from "@nextui-org/react";
+import { Button } from "@nextui-org/react";
 import * as yup from "yup";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -13,7 +13,6 @@ import LockIcon from "@/components/Icons/LockIcon";
 import { clsx } from "clsx";
 import Link from "next/link";
 import { userData } from "@/data/user";
-import Loader from "@/components/Loader";
 import { ScaleLoader } from "react-spinners";
 import LocaleSwitcherMobile from "@/components/LocaleSwitcherMobile";
 

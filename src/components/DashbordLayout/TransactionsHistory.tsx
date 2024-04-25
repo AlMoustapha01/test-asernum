@@ -3,16 +3,6 @@ import AccountCard from "../AccountCard";
 import TransactionTable from "@/components/Datatable";
 import Icon from "../Icon";
 import { useTranslations } from "next-intl";
-const debits = [
-  {
-    label: "Compte principale",
-    value: "Compte principale",
-  },
-  {
-    label: "Salariale",
-    value: "Salariale",
-  },
-];
 
 const accounts = [
   { title: "Salaire Corporate", balance: 2873456 },
@@ -23,6 +13,16 @@ const accounts = [
 export default function TransactionsHistory() {
   const t = useTranslations("Dashboard");
 
+  const debits = [
+    {
+      label: t("principalAccount"),
+      value: t("principalAccount"),
+    },
+    {
+      label: t("salarial"),
+      value: t("salarial"),
+    },
+  ];
   return (
     <>
       <div className="flex space-x-2.5 2xl:min-h-[10rem] snap-x snap-mandatory overflow-x-auto">

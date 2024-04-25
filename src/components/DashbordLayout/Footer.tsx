@@ -1,7 +1,6 @@
 "use client";
 
 import { Tooltip } from "@nextui-org/react";
-import { IoNotifications } from "react-icons/io5";
 import FooterNavButton from "../FooterNavButton";
 import { useTranslations } from "next-intl";
 import AppLogo from "../AppLogo";

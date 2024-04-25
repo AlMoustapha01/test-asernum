@@ -1,6 +1,6 @@
 import { DetailedHTMLProps, InputHTMLAttributes, useState } from "react";
 import { clsx } from "clsx";
-import { IoMdKey } from "react-icons/io";
+import KeyIcon from "../Icons/KeyIcon";
 
 interface InputTextProps
   extends DetailedHTMLProps<
@@ -45,7 +45,7 @@ export default function InputTextLabelFloat({
           type="button"
           onClick={toggleVisibility}
         >
-          <IoMdKey
+          <KeyIcon
             className={`text-2xl ${
               !isVisible ? "text-gray-medium " : "text-gray-800"
             }`}

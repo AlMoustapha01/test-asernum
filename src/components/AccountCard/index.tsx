@@ -1,8 +1,14 @@
-import Wallet from "@/assets/ASSET DASHBOARD/Groupe 236.svg";
-import { Button } from "@nextui-org/react";
+import {
+  Button,
+  Listbox,
+  ListboxItem,
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@nextui-org/react";
 import { useTranslations } from "next-intl";
-import Image from "next/image";
-import { HiOutlineDotsVertical } from "react-icons/hi";
+import Icon from "../Icon";
+import WalletIcon from "../Icons/WalletIcon";
 
 type AccountProps = {
   title: string;
@@ -11,22 +17,53 @@ type AccountProps = {
 
 // Individual account card component
 const AccountCard: React.FC<AccountProps> = ({ title, balance }) => {
-
   const t = useTranslations("Dashboard");
   return (
     <div className="snap-end shrink-0 w-[30%] 2xl:w-[24%] bg-white flex flex-col justify-between space-y-8 2xl:space-y-8 p-4 rounded-3xl">
       <div className="flex w-full justify-between">
         <div className="w-full">
           <Button className="p-2" isIconOnly>
-            <Image src={Wallet} alt="Wallet" width={36} height={36} />
+            <WalletIcon width={36} height={36} />
           </Button>
           <h2 className="text-gray-700 font-semibold text-sm whitespace-nowrap">
             {title}
           </h2>
         </div>
-        <Button variant="light" className="p-2" isIconOnly>
-          <HiOutlineDotsVertical />
-        </Button>
+        <Popover placement="bottom-end" offset={20} showArrow>
+          <PopoverTrigger>
+            <Button variant="light" className="p-2" isIconOnly>
+              <Icon name="ellipsis-vertical" />
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent>
+            <Listbox className="text-xs" aria-label="Actions" onAction={(key) => alert(key)}>
+              <ListboxItem
+                className="text-xs"
+                
+                startContent={
+                  <Icon className="w-5 h-5" name="clipboard-minus" />
+                }
+                key="show"
+              >
+                {t('accountDetails')}
+              </ListboxItem>
+              <ListboxItem
+                className="text-xs"
+                startContent={<Icon className="w-5 h-5" name="pencil" />}
+                key="edit"
+              >
+               {t('modifyAccountName')}
+              </ListboxItem>
+              <ListboxItem
+                className="text-xs"
+                startContent={<Icon className="w-5 h-5" name="trash-2" />}
+                key="delete"
+              >
+                {t('deleteAccount')}
+              </ListboxItem>
+            </Listbox>
+          </PopoverContent>
+        </Popover>
       </div>
 
       <div>

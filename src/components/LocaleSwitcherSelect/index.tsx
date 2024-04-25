@@ -4,8 +4,7 @@ import { useParams } from "next/navigation";
 import { ChangeEvent, useTransition } from "react";
 import { useRouter, usePathname } from "@/navigation";
 import { Select, SelectProps } from "@nextui-org/react";
-import Globe from "@/assets/svg/globe.svg";
-import Image from "next/image";
+import GlobeIcon from "../Icons/GlobeIcon";
 interface Props extends SelectProps {
   defaultValue: string;
   label: string;
@@ -37,7 +36,7 @@ export default function LocaleSwitcherSelect({
   return (
     <Select
       placeholder=""
-      startContent={<Image className="w-5" src={Globe} alt="globe" />}
+      startContent={<GlobeIcon className="w-5" />}
       defaultSelectedKeys={[defaultValue]}
       disabled={isPending}
       onChange={onSelectChange}

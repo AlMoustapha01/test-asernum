@@ -5,19 +5,20 @@ import InputTextLabelFloat from "../InputLabelFloat";
 import Icon from "../Icon";
 import { useTranslations } from "next-intl";
 
-const debits = [
-  {
-    label: "Compte principale",
-    value: "Compte principale",
-  },
-  {
-    label: "Salariale",
-    value: "Salariale",
-  },
-];
+
 export default function CardOperations() {
   const t = useTranslations("Dashboard");
 
+  const debits = [
+    {
+      label: t('principalAccount'),
+      value: t('principalAccount'),
+    },
+    {
+      label: t('salarial'),
+      value: t('salarial'),
+    },
+  ];
   return (
     <>
       <CreditCard />

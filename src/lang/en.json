@@ -74,7 +74,12 @@
   "approvisionment":"Approvisionment",
   "account":"Account",
   "creditAccount":"Accounts to credit",
-  "availableSoon":"Available soon"
-  
+  "availableSoon":"Available soon",
+  "sellPointEmpty": "Sell point not found",
+  "principalAccount": "Principal Account",
+  "salarial": "Salarial",
+  "accountDetails": "Account details",
+  "modifyAccountName":"Modify account name",
+  "deleteAccount":"Delete account"
 }
 }

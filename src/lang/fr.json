@@ -72,7 +72,12 @@
     "approvisionment": "Approvisionnement",
     "account": "Comptes",
     "creditAccount":"Comptes à créditer",
-    "availableSoon":"Bientôt disponible"
-
+    "availableSoon":"Bientôt disponible",
+    "sellPointEmpty": "Aucun point de vente retrouvé",
+    "principalAccount": "Compte principale",
+    "salarial": "Salariale",
+    "accountDetails": "Détails du compte",
+    "modifyAccountName":"Modifier le nom du compte",
+    "deleteAccount":"Supprimer le compte"
   }
 }
