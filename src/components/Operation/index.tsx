@@ -19,27 +19,7 @@ import DashboardAppLogo from "../Icons/DashboardAppLogo";
 import CountrySelector from "../CountrySelector";
 import MobileMoneySelector from "../MobileMoneySelector";
 import { useState } from "react";
-import InputText from "../InputText";
 import InputTextLabelFloat from "../InputLabelFloat";
-
-const Paiments = () => {
-  return (
-    <div className="flex gap-1">
-      <button>
-        <Image src={Moov} className="w-8 h-8 rounded-lg" alt="Moov Money" />
-      </button>
-      <button>
-        <Image src={Mtn} className="w-8 h-8 rounded-lg" alt="MTN MOMO" />
-      </button>
-      <button>
-        <Image src={Orange} className="w-7 h-7 rounded-lg" alt="Orange Money" />
-      </button>
-      <button>
-        <Image src={Wave} className="w-8 h-8 rounded-lg" alt="Wave Money" />
-      </button>
-    </div>
-  );
-};
 
 export default function Operation() {
   const t = useTranslations("Dashboard");
@@ -99,7 +79,7 @@ export default function Operation() {
               variant="bordered"
               classNames={{
                 trigger:
-                  "py-7 bg-white border border-gray-light hover:bg-white",
+                  "py-6 bg-white border border-gray-light hover:bg-white",
               }}
               id="country"
               onSelectionChange={(keys) =>
@@ -110,7 +90,7 @@ export default function Operation() {
 
           <MobileMoneySelector
             classNames={{
-              trigger: "py-7 bg-white border border-gray-light hover:bg-white",
+              trigger: "py-6 bg-white border border-gray-light hover:bg-white",
             }}
             indicator={indicator}
           />
@@ -149,12 +129,11 @@ export default function Operation() {
             <Select
               variant="bordered"
               id="zone"
-              size={"lg"}
               selectedKeys={["UEMOA"]}
               className="border-black"
               classNames={{
                 trigger:
-                  "py-7 bg-white border border-gray-light hover:bg-white",
+                  "py-6 bg-white border border-gray-light hover:bg-white",
               }}
             >
               {zone.map((cur) => (

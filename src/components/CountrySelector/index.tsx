@@ -46,7 +46,6 @@ export default function CountrySelector({ ...props }: CountrySelectorProps) {
   return (
     <Select
       {...props}
-      size="lg"
       defaultSelectedKeys={[countries[0].code]}
       items={countries}
       renderValue={(

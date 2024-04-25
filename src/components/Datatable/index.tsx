@@ -151,7 +151,7 @@ export default function DataTable() {
 
   const classNames = React.useMemo(
     () => ({
-      wrapper: ["max-h-[500px]", "rounded-none", "border-0", "shadow-none"],
+      wrapper: ["min-h-[25rem]", "rounded-none", "border-0", "shadow-none"],
       th: ["bg-transparent", "text-default-500", "border-b", "border-divider"],
       td: [
         // changing the rows border radius
@@ -183,7 +183,7 @@ export default function DataTable() {
       </TableHeader>
       <TableBody items={transactions}>
         {(item) => (
-          <TableRow key={item.ID_transaction}>
+          <TableRow  key={item.ID_transaction}>
             {(columnKey) => (
               <TableCell>{renderCell(item, columnKey)}</TableCell>
             )}
