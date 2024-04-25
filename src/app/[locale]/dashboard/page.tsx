@@ -25,9 +25,9 @@ export default function DashbordPage() {
     <DashboardLayout>
       <div className="pb-10">
         <div className="xk-l:flex md:grid md:grid-cols-2 justify-between items-center">
-          <p className="text-gray-700 font-semibold">{t("serenitySpace")}</p>
+          <p className="text-lg text-[#767676] tracking-tight">{t("serenitySpace")}</p>
           <div className="flex gap-2 items-center bg-white dark:bg-black p-1 px-4 rounded-lg">
-            <p className="text-nowrap whitespace-nowrap">
+            <p className="text-nowrap whitespace-nowrap text-xs">
               {t("doYouHaveConcerns")}
             </p>
             <Input
