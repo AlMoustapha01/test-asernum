@@ -49,7 +49,7 @@ export default function DashbordPage() {
                   <Button
                     variant="light"
                     className="inline-flex text-xs text-[#909090] hover:underline duration-200 mb-1"
-                    endContent={<Icon name="arrow-right" className="text-gray-500" />}
+                    endContent={<Icon name="chevron-right" className="text-gray-500 h-4 w-4" />}
                   >
                     {t("seeAll")}
                   </Button>
@@ -78,7 +78,7 @@ export default function DashbordPage() {
                   <Button
                     variant="light"
                     className="inline-flex text-xs text-[#909090] hover:underline duration-200 mb-1"
-                    endContent={<Icon name="arrow-right" className="text-gray-500" />}
+                    endContent={<Icon name="chevron-right" className="text-gray-500 h-4 w-4" />}
                   >
                     {t("seeAll")}
                   </Button>

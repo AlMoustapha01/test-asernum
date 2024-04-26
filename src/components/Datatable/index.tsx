@@ -132,12 +132,12 @@ export default function DataTable() {
             <div className="relative flex items-center gap-2">
               <Tooltip content="Details">
                 <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
-                  <Icon name="ellipsis-vertical" />
+                  <Icon name="ellipsis-vertical" className="h-4 w-4" />
                 </span>
               </Tooltip>
               <Tooltip content="Supprimer">
                 <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
-                  <Icon name="trash-2" />
+                  <Icon name="trash-2" className="h-4 w-4" />
                 </span>
               </Tooltip>
             </div>

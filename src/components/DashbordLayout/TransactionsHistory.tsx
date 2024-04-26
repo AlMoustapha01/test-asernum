@@ -57,7 +57,7 @@ export default function TransactionsHistory() {
 
           <Button
             variant="light"
-            endContent={<Icon name="chevron-right" className="text-gray-500" />}
+            endContent={<Icon name="chevron-right" className="text-gray-500 h-4 w-4" />}
           >
             {t("seeAll")}
           </Button>

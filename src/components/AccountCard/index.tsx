@@ -32,7 +32,7 @@ const AccountCard: React.FC<AccountProps> = ({ title, balance }) => {
         <Popover placement="bottom-end" offset={20} showArrow>
           <PopoverTrigger>
             <Button variant="light" className="p-2" isIconOnly>
-              <Icon name="ellipsis-vertical" />
+              <Icon className="w-3 h-3" name="ellipsis-vertical" />
             </Button>
           </PopoverTrigger>
           <PopoverContent>
@@ -41,7 +41,7 @@ const AccountCard: React.FC<AccountProps> = ({ title, balance }) => {
                 className="text-xs"
                 
                 startContent={
-                  <Icon className="w-5 h-5" name="clipboard-minus" />
+                  <Icon className="w-4 h-4" name="clipboard-minus" />
                 }
                 key="show"
               >
@@ -49,14 +49,14 @@ const AccountCard: React.FC<AccountProps> = ({ title, balance }) => {
               </ListboxItem>
               <ListboxItem
                 className="text-xs"
-                startContent={<Icon className="w-5 h-5" name="pencil" />}
+                startContent={<Icon className="w-4 h-4" name="pencil" />}
                 key="edit"
               >
                {t('modifyAccountName')}
               </ListboxItem>
               <ListboxItem
                 className="text-xs"
-                startContent={<Icon className="w-5 h-5" name="trash-2" />}
+                startContent={<Icon className="w-4 h-4" name="trash-2" />}
                 key="delete"
               >
                 {t('deleteAccount')}
