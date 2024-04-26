@@ -5,7 +5,7 @@ import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { ReactNode } from "react";
 import { NextIntlClientProvider, useMessages } from "next-intl";
 import { Analytics } from "@vercel/analytics/react"
-
+import { SpeedInsights } from "@vercel/speed-insights/next"
 type Props = {
   children: ReactNode;
   params: { locale: string };
@@ -42,6 +42,7 @@ export default function LocaleLayout({ children, params: { locale } }: Props) {
           <AppProvider>
             {children}
             <Analytics />
+            <SpeedInsights />
           </AppProvider>
         </NextIntlClientProvider>
       </body>
